@@ -1,0 +1,18 @@
+{
+  "name": "ecust",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ecust-teaching-schedule2teaching-events": "file:ecust-teaching-schedule2teaching-events",
+    "fetch-ecust-teaching-schedule": "file:fetch-ecust-teaching-schedule",
+    "node-google-calendar": "^1.1.1",
+    "teaching-event2google-calendar-event": "file:teaching-event2google-calendar-event"
+  }
+}

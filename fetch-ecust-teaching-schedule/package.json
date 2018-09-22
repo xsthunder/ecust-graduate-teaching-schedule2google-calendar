@@ -1,0 +1,19 @@
+{
+  "name": "fetch-ecust-teaching-schedule",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "encoding": "^0.1.12",
+    "got": "^9.2.2",
+    "pify": "^4.0.0",
+    "readline2": "^1.0.1",
+    "tough-cookie": "^2.4.3"
+  }
+}
