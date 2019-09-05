@@ -68,7 +68,7 @@ function main(o) {
         "colorId": "5",
         "summary": `${o.location}/${o.name}`,
         "location": o.location,
-        "description":`教师:${o.teacher};`,
+        "description":o.description?o.description:`教师:${o.teacher}`,
         ...startAndEnd(dateTime, timeOffsets(o.time)),
         recurrence
     }
