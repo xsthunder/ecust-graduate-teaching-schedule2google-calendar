@@ -36,8 +36,9 @@ exports.periodOffset = periodOffset;
 function weekdayOffset(weekday) {
     function getWeekdayOffset(s) {
         const ans = '一二三四五六日'.indexOf(s);
-        if (ans < 0)
-            throw new Error('invalid input');
+        if (ans < 0){
+            throw new Error('invalid weekday' + weekday + s);
+        }
         return ans;
     }
     return setD(getWeekdayOffset(weekday[2]));

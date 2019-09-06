@@ -11,8 +11,17 @@ const path = require('path');
  * @see https://developers.google.com/calendar/v3/reference/events
  */
 function warpper(e) {
+    
     if (e instanceof Array) {
-        return e.map(main);
+        return e.map((o,i)=>{
+            try{
+                return main(o);
+            }
+            catch(e){
+                console.warn('err in teachingEvent2googleEvent', i, o);
+                throw(e)
+            }
+        });
     }
     else return main(e);
 }

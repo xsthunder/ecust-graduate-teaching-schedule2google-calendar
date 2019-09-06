@@ -1,10 +1,7 @@
 const path = require('path')
 const timezone = 'UTC+08:00';
 module.exports = {
-    "TEMP_FILE_NAME":path.resolve(__dirname, 'temp.html'),
-    "termStartdateOnMonday": new Date('2018-09-10T00:00:00'),
-    "calendarId": "",
-    "account":'',
-    "passwd":"",
+    "termStartdateOnMonday": new Date('2019-09-02T00:00:00'),
+    "calendarId": "hquf9lap6st1p9cgv5grtomjik@group.calendar.google.com",
     timezone,
 }
