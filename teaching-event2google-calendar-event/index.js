@@ -69,7 +69,7 @@ function main(o) {
         "summary": `${o.location}/${o.name}`,
         "location": o.location,
         "description":o.description?o.description:`教师:${o.teacher}`,
-        ...startAndEnd(dateTime, timeOffsets(o.time)),
+        ...startAndEnd(dateTime, timeOffsets(o.time, o.weekday) ),
         recurrence
     }
 }

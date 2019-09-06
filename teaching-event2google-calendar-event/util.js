@@ -1,3 +1,5 @@
+const fs = require('fs')
+const path = require('path')
 function setHM(h, m) {
     const d = new Date(0);
     d.setUTCHours(h);
@@ -45,22 +47,41 @@ exports.weekdayOffset = weekdayOffset;
  * @param  string time
  * @returns '11~12节', ->[ 1970-01-01T19:50:00.000Z, 1970-01-01T21:30:00.000Z ]
  */
-function timeOffsets(time) {
-    function startDateTime(i) {
-        switch (i) {
-            case 1: return setHM(8, 0);
-            case 3: return setHM(9, 55);
-            case 5: return setHM(13, 30);
-            case 7: return setHM(15, 25);
-            case 9: return setHM(18, 0);
-            case 11: return setHM(19, 50);
+
+const timeinfo = require('../timeinfo/timeinfo.json')
+const buildDayInfo = (arr)=>{
+    return arr.reduce((p, c)=>{
+        const [key, start, end] = c;
+        p[key] = {start, end}
+        return p
+    }, {})
+}
+function timeOffsets(time, weekday ) {
+    function startDateTime(i, weekday, key) {
+        let dayinfo = null
+        if(weekday.indexOf('六') > 0 || weekday.indexOf('日') > 0){
+            dayinfo = timeinfo['weekend']
         }
-        throw new Error('invalid input');
+        else{
+            dayinfo = timeinfo['weekday']
+        }
+        dayinfo = buildDayInfo(dayinfo)
+        let ret = dayinfo[i][key];
+        let [h,m] = ret.split(':')
+        h = Number.parseInt(h)
+        m = Number.parseInt(m)
+        ret = setHM(h,m)
+        return ret
     }
-    const rg = /(\d+)/;
-    const n = rg.exec(time);
-    const start = startDateTime((Number.parseInt(n[1])));
-    const end = new Date(+start + +setHM(1, 40));
+    const [startIndex, endIndex] = time.split('-')
+    const start = startDateTime(startIndex, weekday, 'start');
+    const end =  startDateTime(endIndex, weekday, 'end');
     return [start, end];
+}
+if(!module.parent){
+    console.log(
+        ['9-12', '星期一'], timeOffsets('9-12', '星期一'),
+        ['9-12', '星期日'], timeOffsets('9-12', '星期日'),
+    )
 }
 exports.timeOffsets = timeOffsets;
