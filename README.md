@@ -2,11 +2,11 @@
 
 1. install and run SSTrap or other method makes you get access to google
 
-3. edit `calendarId` at config.js, in my case it's `hquf9lap6st1p9cgv5grtomjik@group.calendar.google.com`, you can get it from google your specified calendar setting. It's recommanded to create a new calendar. **add the admin acount** which can be find in to `share with others`
+2. [follow constuctions to setup your google calendar](https://github.com/yuhong90/node-google-calendar/wiki#preparations-needed), download Credentials and rename it to `calendar-secret.json` which is requred by `calendar-config.js` at [api console/Credentials/ Create credentials / Service account key ](https://console.developers.google.com/apis/dashboard).
 
-4. [follow constuctions to setup your google calendar](https://github.com/yuhong90/node-google-calendar/wiki#preparations-needed), download Credentials and rename it to `calendar-secret.json` which is requred by `calendar-config.js` at [api console/Credentials/ Create credentials / Service account key ](https://console.developers.google.com/apis/dashboard).
+3. edit `calendarId` at config.js, in my case it's `hquf9lap6st1p9cgv5grtomjik@group.calendar.google.com`, you can get it from google your specified calendar setting. It's recommanded to create a new calendar. **add the admin account** which can be find in `calendar-secret/client_email` to `share with others` in the calendar's setting and set the modifying privilege.
 
-5. `npm start`
+4. `npm start`
 
 
 ## results
