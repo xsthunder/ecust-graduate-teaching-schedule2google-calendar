@@ -6,7 +6,11 @@
 
 3. edit `calendarId` at config.js, in my case it's `hquf9lap6st1p9cgv5grtomjik@group.calendar.google.com`, you can get it from google your specified calendar setting. It's recommanded to create a new calendar. **add the admin account** which can be find in `calendar-secret/client_email` to `share with others` in the calendar's setting and set the modifying privilege.
 
-4. `npm start`
+4. install nodejs > 10
+
+5. use [lessons/export-json.js](lessons/export-json.js) to extract lesson information. Use the json at [https://github.com/xsthunder/ecust-graduate-teaching-schedule2google-calendar/blob/master/index.js#L20](https://github.com/xsthunder/ecust-graduate-teaching-schedule2google-calendar/blob/master/index.js#L20)
+
+6. `npm start`
 
 
 ## results
