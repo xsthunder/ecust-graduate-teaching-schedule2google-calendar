@@ -32,15 +32,21 @@ async function main() {
         let cal = new CalendarAPI(calendarConfig);
         const calendarId = calendarConfig.calendarId;
 
+        let suc = 0;
+        let fail = 0;
         for(o of res){
             try {
                 await cal.Events.insert(calendarId, o);
+                console.log('succeeded in inserting ' + o.summary)
+                suc ++;
             } catch (err) {
                 const d = new Date(o.start.dateTime)
                 d.setHours(d.getHours() + 8);
-                console.log(`failed insertint ${o.summary} ${d.getDay()} ${d.toLocaleDateString()} ${d.toLocaleTimeString()} ${err}`)
+                console.error(`failed insertint ${o.summary} ${d.getDay()} ${d.toLocaleDateString()} ${d.toLocaleTimeString()} ${err}`)
+                fail++;
             }
         }
+        console.log(`succeeded ${suc}, failed ${fail}, total ${res.length}`)
     } catch (err) {
         console.log('err on main', err);
     }
