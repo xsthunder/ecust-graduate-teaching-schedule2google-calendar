@@ -10,7 +10,7 @@
 
 5. use [lessons/export-json.js](lessons/export-json.js) to extract lesson information. Use the json at [https://github.com/xsthunder/ecust-graduate-teaching-schedule2google-calendar/blob/master/index.js#L20](https://github.com/xsthunder/ecust-graduate-teaching-schedule2google-calendar/blob/master/index.js#L20)
 
-6. `npm start`
+6. `npm install` and then `npm start`.
 
 
 ## results
